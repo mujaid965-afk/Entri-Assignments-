@@ -20,10 +20,12 @@
 #include <stdint.h>
 
 
-//cretae delay function
-void delay(uint32_t count)
+//cretae delay function to use appropriate delay fuction
+void delay_ms(uint32_t ms)
 {
-	for(uint32_t i=0; i < count; i++);
+	// ~4000 iterations is roughly 1ms at 16MHz (with -O0 optimization)
+	uint32_t count = ms * 4000;
+	for(uint32_t i = 0; i < count; i++);
 }
 
 
@@ -57,6 +59,9 @@ int main(void)
 	GpioBtn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
 	GpioBtn.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
 
+	GPIO_Init(&GpioBtn);
+
+
 	//External LED1 - Pin 6
 	LED1.pGPIOx = GPIOA;
 	LED1.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_6;
@@ -82,13 +87,14 @@ int main(void)
 	while(1)
 	{
 		//TASK 1 - BUTTON TOGGLE
+
 		if(GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) == 0)
 		{
 			led_state = !led_state;
 
 			GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_5, led_state);
 
-				//wait until button released
+			//wait until button released
 			while(GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) == 0);
 
 		}
@@ -99,12 +105,12 @@ int main(void)
 		GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_6, 1);
 		GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_7, 0);
 
-		delay(800000);
+		delay_ms(100);
 
 		GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_6, 0);
 		GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_7, 1);
 
-		delay(800000);
+		delay_ms(100);
 
 
 
