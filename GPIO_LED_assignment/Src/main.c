@@ -23,7 +23,6 @@
 //cretae delay function to use appropriate delay fuction
 void delay_ms(uint32_t ms)
 {
-	// ~4000 iterations is roughly 1ms at 16MHz (with -O0 optimization)
 	uint32_t count = ms * 4000;
 	for(uint32_t i = 0; i < count; i++);
 }
