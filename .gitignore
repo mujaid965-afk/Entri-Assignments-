@@ -8,7 +8,4 @@ Release/
 *.map
 *.elf
 *.list
-
-C assignment/
-
 *.exe
