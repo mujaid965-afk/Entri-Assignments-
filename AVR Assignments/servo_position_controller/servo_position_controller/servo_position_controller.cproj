@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>led_train</AssemblyName>
-    <Name>led_train</Name>
-    <RootNamespace>led_train</RootNamespace>
+    <AssemblyName>servo_position_controller</AssemblyName>
+    <Name>servo_position_controller</Name>
+    <RootNamespace>servo_position_controller</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
