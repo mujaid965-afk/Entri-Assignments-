@@ -1,3 +1,12 @@
+/* Write a C program that uses functions to evaluate a simple arithmetic expression 
+given two numbers and an operator. 
+Description: The program should prompt the user to enter two floating-point 
+numbers and an arithmetic operator (+, -, *, /). A separate function must be written for 
+each operation (add, subtract, multiply, divide). A selector function should take the 
+operator as a parameter and call the appropriate function, returning the result to main. 
+Division by zero must be handled gracefully inside the divide function. 
+Pre-requisites: Functions, Switch/Conditionals, Float Arithmetic, Error Handling. */
+
 #include <stdio.h>
 
 float add(float a, float b)
